@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>死了么 - 社区</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/shared.css">
+    <style>
+        .tab-bar {
+            display: flex;
+            border-bottom: 1px solid var(--medium-gray);
+            background-color: white;
+            position: sticky;
+            top: 44px;
+            z-index: 40;
+        }
+        
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 12px 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+        
+        .tab.active {
+            color: var(--primary-color);
+            font-weight: bold;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .post-card {
+            background-color: white;
+            border-bottom: 1px solid var(--light-gray);
+            padding: 16px;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .post-image {
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .interaction-bar {
+            display: flex;
+            border-top: 1px solid var(--light-gray);
+            padding-top: 12px;
+            margin-top: 12px;
+        }
+        
+        .interaction-button {
+            display: flex;
+            align-items: center;
+            margin-right: 16px;
+            color: var(--dark-gray);
+            font-size: 14px;
+        }
+        
+        .interaction-button i {
+            margin-right: 4px;
+        }
+        
+        .topic-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 16px;
+            background-color: var(--light-gray);
+            color: var(--secondary-color);
+            font-size: 12px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .fab-button {
+            position: fixed;
+            bottom: 85px;
+            right: 16px;
+            width: 56px;
+            height: 56px;
+            border-radius: 28px;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
+            z-index: 30;
+        }
+    </style>
+</head>
+<body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <div class="status-bar-left">
+            <span class="status-bar-time">21:37</span>
+        </div>
+        <div class="status-bar-right">
+            <div class="status-bar-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-three-quarters"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面头部 -->
+    <div class="page-header shadow-sm">
+        <a href="#" class="text-gray-500">
+            <i class="fas fa-search"></i>
+        </a>
+        <div class="page-title">社区</div>
+        <a href="#" class="text-gray-500">
+            <i class="fas fa-bell-slash"></i>
+        </a>
+    </div>
+
+    <!-- 标签栏 -->
+    <div class="tab-bar">
+        <div class="tab active">关注</div>
+        <div class="tab">热门</div>
+        <div class="tab">发现</div>
+        <div class="tab">独居圈</div>
+        <div class="tab">求助</div>
+    </div>
+
+    <!-- 页面内容 -->
+    <div class="page-container bg-gray-50">
+        <!-- 热门话题 -->
+        <div class="px-4 py-3 bg-white">
+            <div class="flex justify-between items-center mb-2">
+                <h3 class="font-bold">热门话题</h3>
+                <a href="#" class="text-sm text-gray-500">更多</a>
+            </div>
+            <div class="flex flex-wrap">
+                <div class="topic-tag">
+                    <i class="fas fa-fire text-red-500 mr-1"></i> 独居防猝死
+                </div>
+                <div class="topic-tag">
+                    <i class="fas fa-heart text-red-500 mr-1"></i> 今天还活着
+                </div>
+                <div class="topic-tag">
+                    <i class="fas fa-utensils text-yellow-500 mr-1"></i> 独居美食
+                </div>
+                <div class="topic-tag">
+                    <i class="fas fa-home text-green-500 mr-1"></i> 打造舒适小窝
+                </div>
+                <div class="topic-tag">
+                    <i class="fas fa-sad-tear text-blue-500 mr-1"></i> 孤独吐槽
+                </div>
+            </div>
+        </div>
+
+        <!-- 帖子列表 -->
+        <!-- 帖子1 -->
+        <div class="post-card">
+            <div class="flex justify-between items-start mb-3">
+                <div class="flex">
+                    <div class="user-avatar mr-3">
+                        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="用户头像" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <div class="font-bold">养生达人</div>
+                        <div class="text-xs text-gray-500">3小时前 · 独居青年</div>
+                    </div>
+                </div>
+                <button class="text-gray-500">
+                    <i class="fas fa-ellipsis-h"></i>
+                </button>
+            </div>
+
+            <div class="post-content">
+                <p class="mb-2">今日毫无征兆地活过来了，差点发现不了家里的腐烂气味是我自己！😱 #今天还活着#</p>
+                <div class="post-image">
+                    <img src="https://images.unsplash.com/photo-1588854337236-6889d631faa8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="帖子图片" class="w-full">
+                </div>
+                <div class="interaction-bar">
+                    <button class="interaction-button">
+                        <i class="far fa-heart"></i>
+                        <span>238</span>
+                    </button>
+                    <button class="interaction-button">
+                        <i class="far fa-comment"></i>
+                        <span>42</span>
+                    </button>
+                    <button class="interaction-button">
+                        <i class="far fa-share-square"></i>
+                        <span>分享</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 帖子2 -->
+        <div class="post-card">
+            <div class="flex justify-between items-start mb-3">
+                <div class="flex">
+                    <div class="user-avatar mr-3">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="用户头像" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <div class="font-bold">独居小仙女</div>
+                        <div class="text-xs text-gray-500">昨天 · 独居美食</div>
+                    </div>
+                </div>
+                <button class="text-gray-500">
+                    <i class="fas fa-ellipsis-h"></i>
+                </button>
+            </div>
+
+            <div class="post-content">
+                <p class="mb-2">独居第30天，终于掌握了十分钟煮一道完美微波炉料理的技能！💪 这是我的秘制泡面升级版，再孤独也要吃得香喷喷~ #独居美食# #泡面进化论#</p>
+                <div class="post-image">
+                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="帖子图片" class="w-full">
+                </div>
+                <div class="interaction-bar">
+                    <button class="interaction-button">
+                        <i class="far fa-heart"></i>
+                        <span>412</span>
+                    </button>
+                    <button class="interaction-button">
+                        <i class="far fa-comment"></i>
+                        <span>89</span>
+                    </button>
+                    <button class="interaction-button">
+                        <i class="far fa-share-square"></i>
+                        <span>分享</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 帖子3 -->
+        <div class="post-card">
+            <div class="flex justify-between items-start mb-3">
+                <div class="flex">
+                    <div class="user-avatar mr-3">
+                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="用户头像" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <div class="font-bold">加班小王子</div>
+                        <div class="text-xs text-gray-500">2天前 · 求助</div>
+                    </div>
+                </div>
+                <button class="text-gray-500">
+                    <i class="fas fa-ellipsis-h"></i>
+                </button>
+            </div>
+
+            <div class="post-content">
+                <p class="mb-2">最近总是凌晨3点被隔壁奇怪的声音吵醒，怀疑是有人...死了？🧟‍♂️ 独居恐怖故事来了，有没有勇士敢和我一起查看？ #求助# #独居恐怖故事#</p>
+                <div class="post-image">
+                    <img src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="帖子图片" class="w-full">
+                </div>
+                <div class="interaction-bar">
+                    <button class="interaction-button">
+                        <i class="far fa-heart"></i>
+                        <span>156</span>
+                    </button>
+                    <button class="interaction-button">
+                        <i class="far fa-comment"></i>
+                        <span>203</span>
+                    </button>
+                    <button class="interaction-button">
+                        <i class="far fa-share-square"></i>
+                        <span>分享</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 帖子4 -->
+        <div class="post-card">
+            <div class="flex justify-between items-start mb-3">
+                <div class="flex">
+                    <div class="user-avatar mr-3">
+                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="用户头像" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <div class="font-bold">独居生存大师</div>
+                        <div class="text-xs text-gray-500">3天前 · 独居防猝死</div>
+                    </div>
+                </div>
+                <button class="text-gray-500">
+                    <i class="fas fa-ellipsis-h"></i>
+                </button>
+            </div>
+
+            <div class="post-content">
+                <p class="mb-3">【独居防猝死指南】连续工作超过4小时，电脑会自动弹出提醒，强制休息10分钟。分享三款我用过的最好的防猝死软件，总有一款适合你！💻 #独居防猝死# #996不如生活#</p>
+                <div class="bg-gray-50 p-3 rounded-lg text-sm">
+                    <p class="mb-2 font-medium">1. 强制休息提醒 - Rest Time</p>
+                    <p class="mb-2 font-medium">2. 坐姿矫正监测 - Posture Fix</p>
+                    <p class="font-medium">3. 智能水杯提醒 - HydroSmart</p>
+                </div>
+                <div class="interaction-bar">
+                    <button class="interaction-button">
+                        <i class="far fa-heart"></i>
+                        <span>897</span>
+                    </button>
+                    <button class="interaction-button">
+                        <i class="far fa-comment"></i>
+                        <span>124</span>
+                    </button>
+                    <button class="interaction-button">
+                        <i class="far fa-share-square"></i>
+                        <span>分享</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 浮动发布按钮 -->
+    <button class="fab-button">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <!-- 导航栏 -->
+    <div class="nav-bar">
+        <div class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>首页</span>
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-store"></i>
+            <span>服务</span>
+        </div>
+        <div class="nav-item active">
+            <i class="fas fa-users"></i>
+            <span>社区</span>
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>我的</span>
+        </div>
+    </div>
+</body>
+</html> 

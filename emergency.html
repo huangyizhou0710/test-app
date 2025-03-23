@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>死了么 - 紧急求助</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/shared.css">
+    <style>
+        .emergency-button {
+            background-color: var(--danger-color);
+            animation: pulseDanger 1.5s infinite;
+            height: 120px;
+            width: 120px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            color: white;
+            border: none;
+        }
+        
+        @keyframes pulseDanger {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 129, 0.7);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 0 20px rgba(255, 107, 129, 0);
+                transform: scale(1.05);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 129, 0);
+                transform: scale(1);
+            }
+        }
+        
+        .contact-card {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 12px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <div class="status-bar-left">
+            <span class="status-bar-time">21:37</span>
+        </div>
+        <div class="status-bar-right">
+            <div class="status-bar-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-three-quarters"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面头部 -->
+    <div class="page-header">
+        <a href="home.html" class="text-gray-500">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <div class="page-title">紧急求助</div>
+        <div style="width: 24px;"></div> <!-- 占位 -->
+    </div>
+
+    <!-- 页面内容 -->
+    <div class="page-container bg-gray-50">
+        <!-- 紧急按钮部分 -->
+        <div class="py-10 px-4 text-center">
+            <h2 class="text-xl font-bold mb-2">需要紧急帮助？</h2>
+            <p class="text-gray-500 mb-8">按下下方按钮，我们会立即为您联系救援</p>
+            
+            <button class="emergency-button">
+                <i class="fas fa-exclamation-triangle mb-2" style="font-size: 32px;"></i>
+                <span class="font-bold">求救</span>
+            </button>
+        </div>
+
+        <!-- 计时器和提示 -->
+        <div class="px-4 mb-6">
+            <div class="bg-yellow-50 border border-yellow-100 rounded-lg p-4 text-center">
+                <p class="text-yellow-700 mb-2">按下求救按钮后，将在<span class="font-bold">10秒内</span>自动发送您的位置</p>
+                <p class="text-xs text-yellow-500">如按错请立即取消，避免浪费救援资源</p>
+            </div>
+        </div>
+
+        <!-- 快速联系人 -->
+        <div class="px-4">
+            <h3 class="font-bold text-lg mb-3">快速联系</h3>
+            
+            <div class="contact-card">
+                <div class="contact-icon text-blue-500">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <div class="flex-1">
+                    <div class="font-medium">急救中心</div>
+                    <div class="text-sm text-gray-500">24小时急救服务</div>
+                </div>
+                <button class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
+                    <i class="fas fa-phone-alt"></i>
+                </button>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon text-purple-500">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <div class="flex-1">
+                    <div class="font-medium">紧急联系人</div>
+                    <div class="text-sm text-gray-500">家人 - 李妈妈</div>
+                </div>
+                <button class="bg-purple-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
+                    <i class="fas fa-phone-alt"></i>
+                </button>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon text-green-500">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <div class="flex-1">
+                    <div class="font-medium">在线咨询</div>
+                    <div class="text-sm text-gray-500">心理咨询师在线</div>
+                </div>
+                <button class="bg-green-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
+                    <i class="fas fa-comment"></i>
+                </button>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon text-red-500">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="flex-1">
+                    <div class="font-medium">附近骑手</div>
+                    <div class="text-sm text-gray-500">急速收尸服务 <span class="text-xs text-red-400">5人在线</span></div>
+                </div>
+                <button class="bg-red-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
+                    <i class="fas fa-motorcycle"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 安全提示 -->
+        <div class="px-4 mt-6 mb-4">
+            <div class="bg-blue-50 border border-blue-100 rounded-lg p-4">
+                <h4 class="font-medium text-blue-700 mb-2">💡 安全小贴士</h4>
+                <p class="text-sm text-blue-600">独居时请确保手机电量充足，并保持定期与亲友联系。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <div class="nav-bar">
+        <div class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>首页</span>
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-store"></i>
+            <span>服务</span>
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-users"></i>
+            <span>社区</span>
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>我的</span>
+        </div>
+    </div>
+</body>
+</html> 

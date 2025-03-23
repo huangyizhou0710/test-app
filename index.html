@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>死了么 - 原型设计</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+        .phone-container {
+            width: 390px;
+            height: 844px;
+            background-color: white;
+            border-radius: 45px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            margin: 20px;
+            position: relative;
+            border: 10px solid #1a1a1a;
+        }
+        .phone-notch {
+            position: absolute;
+            width: 150px;
+            height: 35px;
+            background-color: #1a1a1a;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 100;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        h2 {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body class="p-4">
+    <h1 class="text-4xl font-bold text-center my-6">「死了么」APP 原型设计</h1>
+    <p class="text-lg text-center mb-8">为独居90后设计的生存状态确认与服务平台</p>
+    
+    <div class="flex flex-wrap justify-center">
+        <div class="flex flex-col items-center">
+            <h2 class="text-xl">主页</h2>
+            <div class="phone-container">
+                <div class="phone-notch"></div>
+                <iframe src="home.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="flex flex-col items-center">
+            <h2 class="text-xl">求助页面</h2>
+            <div class="phone-container">
+                <div class="phone-notch"></div>
+                <iframe src="emergency.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="flex flex-col items-center">
+            <h2 class="text-xl">骑手页面</h2>
+            <div class="phone-container">
+                <div class="phone-notch"></div>
+                <iframe src="rider.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="flex flex-col items-center">
+            <h2 class="text-xl">个人中心</h2>
+            <div class="phone-container">
+                <div class="phone-notch"></div>
+                <iframe src="profile.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="flex flex-col items-center">
+            <h2 class="text-xl">社区</h2>
+            <div class="phone-container">
+                <div class="phone-notch"></div>
+                <iframe src="community.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="flex flex-col items-center">
+            <h2 class="text-xl">设置</h2>
+            <div class="phone-container">
+                <div class="phone-notch"></div>
+                <iframe src="settings.html"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

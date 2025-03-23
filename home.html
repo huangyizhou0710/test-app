@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>死了么 - 主页</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/shared.css">
+    <style>
+        .survival-button {
+            background-color: var(--success-color);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(46, 213, 115, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(46, 213, 115, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(46, 213, 115, 0);
+            }
+        }
+        .service-card {
+            background-color: var(--light-gray);
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+        .service-card:active {
+            transform: scale(0.98);
+        }
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <div class="status-bar-left">
+            <span class="status-bar-time">21:37</span>
+        </div>
+        <div class="status-bar-right">
+            <div class="status-bar-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-three-quarters"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面内容 -->
+    <div class="page-container">
+        <!-- 用户问候 -->
+        <div class="p-4">
+            <h1 class="text-2xl font-bold mb-1">嗨，朋友</h1>
+            <p class="text-gray-500">还活着吗？点击下方按钮确认哦~</p>
+        </div>
+
+        <!-- 生存确认卡片 -->
+        <div class="px-4 py-6">
+            <div class="card bg-white text-center py-8">
+                <div class="text-xl font-bold mb-4">今天还没确认生存状态哦</div>
+                <p class="text-gray-500 mb-6">快点击下方按钮，告诉大家你还活着！</p>
+                <button class="survival-button primary-button mx-auto" style="max-width: 200px;">
+                    <i class="fas fa-heartbeat mr-2"></i> 我还活着！
+                </button>
+                <p class="text-xs text-gray-400 mt-4">已经连续确认生存 23 天</p>
+                <div class="flex justify-center mt-4">
+                    <div class="px-3 py-1 bg-gray-100 rounded-full text-xs flex items-center">
+                        <i class="fas fa-crown text-yellow-500 mr-1"></i>
+                        <span>存活榜 Top 10%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 紧急求助 -->
+        <div class="px-4 mb-4">
+            <button class="secondary-button bg-red-100 text-red-500 flex items-center justify-center">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                紧急求助
+            </button>
+        </div>
+
+        <!-- 服务入口 -->
+        <div class="px-4">
+            <h2 class="font-bold text-lg mb-3">快捷服务</h2>
+            <div class="grid grid-cols-3 gap-3">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <span class="text-sm">社区互助</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pizza-slice"></i>
+                    </div>
+                    <span class="text-sm">外卖美食</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <span class="text-sm">药品配送</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <span class="text-sm">健康测试</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <span class="text-sm">心理咨询</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <span class="text-sm">AI陪聊</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 活动广告 -->
+        <div class="px-4 mt-6">
+            <div class="rounded-xl overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1576085898323-218337e3e43c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="活动广告" class="w-full h-36 object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-3">
+                    <div class="text-white font-bold">独居青年生存指南</div>
+                    <div class="text-white text-xs">解锁独居生活的N种姿势</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <div class="nav-bar">
+        <div class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>首页</span>
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-store"></i>
+            <span>服务</span>
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-users"></i>
+            <span>社区</span>
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>我的</span>
+        </div>
+    </div>
+</body>
+</html> 

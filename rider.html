@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>死了么 - 骑手页面</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/shared.css">
+    <style>
+        .order-card {
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .status-urgent {
+            background-color: #ffecec;
+            color: #ff4757;
+        }
+        
+        .status-new {
+            background-color: #e9f9ff;
+            color: #54a0ff;
+        }
+        
+        .earnings-card {
+            background: linear-gradient(135deg, #3867d6 0%, #5352ed 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 16px;
+        }
+        
+        .map-container {
+            height: 200px;
+            background-color: #e6e6e6;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .toggle-slider {
+            background-color: var(--primary-color);
+        }
+        
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+        
+        .profile-pic {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <div class="status-bar-left">
+            <span class="status-bar-time">21:37</span>
+        </div>
+        <div class="status-bar-right">
+            <div class="status-bar-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-three-quarters"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面头部 -->
+    <div class="page-header shadow-sm">
+        <div style="width: 24px;"></div> <!-- 占位 -->
+        <div class="page-title">骑手工作台</div>
+        <a href="#" class="text-gray-500">
+            <i class="fas fa-bell"></i>
+        </a>
+    </div>
+
+    <!-- 页面内容 -->
+    <div class="page-container bg-gray-50">
+        <!-- 骑手信息 -->
+        <div class="px-4 py-3 bg-white mb-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="profile-pic mr-3">
+                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="骑手头像" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <div class="font-bold">黑白无常</div>
+                        <div class="text-sm text-gray-500">专业收尸 · 5.0⭐</div>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <span class="mr-2 text-sm">接单</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 收益信息 -->
+        <div class="px-4 mb-4">
+            <div class="earnings-card">
+                <div class="text-sm text-blue-200 mb-1">今日收益</div>
+                <div class="text-3xl font-bold mb-4">¥258.50</div>
+                <div class="flex justify-between text-sm">
+                    <div>
+                        <div class="text-blue-200">已完成</div>
+                        <div class="font-bold">3单</div>
+                    </div>
+                    <div>
+                        <div class="text-blue-200">总里程</div>
+                        <div class="font-bold">12.5km</div>
+                    </div>
+                    <div>
+                        <div class="text-blue-200">好评率</div>
+                        <div class="font-bold">100%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 地图区域 -->
+        <div class="px-4 mb-4">
+            <div class="map-container">
+                <img src="https://images.unsplash.com/photo-1548345680-f5475ea5df84?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="地图" class="w-full h-full object-cover opacity-80">
+                <div class="absolute top-3 right-3 bg-white rounded-full p-2 shadow-md">
+                    <i class="fas fa-location-arrow text-blue-500"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 任务列表 -->
+        <div class="px-4">
+            <div class="flex justify-between items-center mb-3">
+                <h2 class="font-bold text-lg">待接收尸任务</h2>
+                <a href="#" class="text-primary text-sm">全部任务</a>
+            </div>
+
+            <!-- 紧急订单 -->
+            <div class="order-card border-l-4 border-red-500">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <span class="status-badge status-urgent">紧急</span>
+                        <span class="text-gray-500 text-sm ml-2">3分钟前</span>
+                    </div>
+                    <div class="text-red-500 font-bold">¥108.88</div>
+                </div>
+                <div class="font-bold mb-2">万科小区B栋2201室</div>
+                <div class="text-sm text-gray-600 mb-3">距离您 1.2km · 预计花费15分钟</div>
+                <div class="text-sm bg-gray-50 p-3 rounded-md mb-3">
+                    <p class="mb-1"><i class="fas fa-exclamation-circle text-red-500 mr-1"></i> 独居老人，已确认无生命体征</p>
+                    <p><i class="fas fa-info-circle text-blue-500 mr-1"></i> 要求：请带专业设备和消毒用品</p>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="text-sm text-gray-500">
+                        <i class="fas fa-user mr-1"></i> 社区网格员 李明
+                    </div>
+                    <button class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold">
+                        立即接单
+                    </button>
+                </div>
+            </div>
+
+            <!-- 普通订单 -->
+            <div class="order-card">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <span class="status-badge status-new">新订单</span>
+                        <span class="text-gray-500 text-sm ml-2">10分钟前</span>
+                    </div>
+                    <div class="text-blue-500 font-bold">¥89.90</div>
+                </div>
+                <div class="font-bold mb-2">幸福里小区12栋1单元303</div>
+                <div class="text-sm text-gray-600 mb-3">距离您 2.5km · 预计花费25分钟</div>
+                <div class="text-sm bg-gray-50 p-3 rounded-md mb-3">
+                    <p><i class="fas fa-info-circle text-blue-500 mr-1"></i> 35岁独居男性，猫咪打翻水杯碰到插线板，触电身亡</p>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="text-sm text-gray-500">
+                        <i class="fas fa-user mr-1"></i> 物业保安 张师傅
+                    </div>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold">
+                        接单
+                    </button>
+                </div>
+            </div>
+
+            <!-- 指派订单 -->
+            <div class="order-card">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <span class="status-badge" style="background-color: #e0f3e0; color: #26de81;">系统指派</span>
+                        <span class="text-gray-500 text-sm ml-2">25分钟前</span>
+                    </div>
+                    <div class="text-green-500 font-bold">¥76.50</div>
+                </div>
+                <div class="font-bold mb-2">阳光公寓6号楼401室</div>
+                <div class="text-sm text-gray-600 mb-3">距离您 0.8km · 预计花费10分钟</div>
+                <div class="text-sm bg-gray-50 p-3 rounded-md mb-3">
+                    <p><i class="fas fa-exclamation-circle text-orange-500 mr-1"></i> 死因：孤独至死，无人问津的社畜</p>
+                    <p><i class="fas fa-info-circle text-blue-500 mr-1"></i> 备注：有猫需安置</p>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="text-sm text-gray-500">
+                        <i class="fas fa-user mr-1"></i> APP自动报警系统
+                    </div>
+                    <div>
+                        <button class="border border-gray-300 text-gray-500 px-4 py-2 rounded-full text-sm font-bold mr-2">
+                            拒绝
+                        </button>
+                        <button class="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold">
+                            接单
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 提示信息 -->
+        <div class="px-4 mt-6 mb-4">
+            <div class="bg-blue-50 border border-blue-100 rounded-lg p-4">
+                <h4 class="font-medium text-blue-700 mb-1">👻 骑手贴士</h4>
+                <p class="text-sm text-blue-600">接单高峰期：凌晨2-4点、周一早上9点、每月工资发放后三天</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <div class="nav-bar">
+        <div class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>首页</span>
+        </div>
+        <div class="nav-item active">
+            <i class="fas fa-motorcycle"></i>
+            <span>接单</span>
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-history"></i>
+            <span>历史</span>
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>我的</span>
+        </div>
+    </div>
+</body>
+</html> 
